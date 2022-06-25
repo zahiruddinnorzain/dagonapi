@@ -3,26 +3,30 @@ include "../connectdb.php";
 
 $table_name = "cat";
 
-$cat_name = $_POST["cat_name"];
-$cat_breed = $_POST["cat_breed"];
-
 $sql = "
 
-INSERT INTO $table_name (cat_name,cat_breed) 
-VALUES ('$cat_name','$cat_breed')
+SELECT * FROM $table_name 
 
 ";
 
 
 // Check connection
 if($type == "mysql"){
-    if ($conn->query($sql) === TRUE) {
-        echo "201_success";
-        http_response_code(201);
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+
+        $rows = array();
+        while($r = $result->fetch_assoc()) {
+            $rows[] = $r;
+        }
+        echo json_encode($rows);
+        http_response_code(200);
+
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-        http_response_code(500);
+        echo "0 results";
     }
+
     $conn->close();
 }
 
@@ -32,7 +36,5 @@ if($type == "psql"){
     echo json_encode($result);
     pg_close($conn);
 }
-
-
 
 ?>

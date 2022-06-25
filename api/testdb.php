@@ -2,17 +2,18 @@
 
 include "connectdb.php";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
 // Check connection
-if ($conn->connect_error) {
-    $status = 'DB ERROR';
-    die("Connection failed: " . $conn->connect_error);
-}else{
-    $status = 'DB OK';
+if($type == "mysql"){
+    if ($conn->connect_error) {
+        $status = 'DB ERROR';
+        die("Connection failed: " . $conn->connect_error);
+    }else{
+        $status = 'DB OK';
+    }
+    $conn->close();
 }
 
-$conn->close();
-
+if($type == "psql"){
+    pg_close($con);
+}
 ?>

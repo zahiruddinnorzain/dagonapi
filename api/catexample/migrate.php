@@ -11,17 +11,25 @@ CREATE TABLE cat (
     )
 ";
 
-if ($conn->query($sql) === TRUE) {
-    // success
-    echo "migrate_success";
-    http_response_code(201);
-} else {
-    // error
-    echo "already_migrate<br>";
-    echo "Error: " . $sql . "<br>" . $conn->error;
-    http_response_code(500);
+
+// Check connection
+if($type == "mysql"){
+    if ($conn->query($sql) === TRUE) {
+        echo "migrate_success";
+        http_response_code(201);
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+        http_response_code(500);
+    }
+    $conn->close();
 }
 
-$conn->close();
+if($type == "psql"){
+    $results = pg_query($conn, $sql) or die('Query failed: ' . pg_last_error());
+    $results = pg_fetch_row($results);
+    echo json_encode($result);
+    pg_close($conn);
+}
+
 
 ?>
