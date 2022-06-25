@@ -12,7 +12,7 @@ $type = "psql";
 $servername = "localhost";
 $username = "admin";
 $password = "\$admin\$";
-$dbname = "taskstta";
+$dbname = "dagonapi";
 
 
 // Create connection
