@@ -1,9 +1,10 @@
 <?php
 
 include "../connectdb.php";
+include "table_name.php";
 
 $sql = "
-CREATE TABLE cat (
+CREATE TABLE $table_name (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     cat_name VARCHAR(30),
     cat_breed TEXT,

@@ -1,7 +1,6 @@
 <?php
 include "../connectdb.php";
-
-$table_name = "cat";
+include "table_name.php";
 
 $cat_name = $_POST["cat_name"];
 $cat_breed = $_POST["cat_breed"];

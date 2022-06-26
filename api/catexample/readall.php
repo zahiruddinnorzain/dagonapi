@@ -1,7 +1,6 @@
 <?php
 include "../connectdb.php";
-
-$table_name = "cat";
+include "table_name.php";
 
 $sql = "
 

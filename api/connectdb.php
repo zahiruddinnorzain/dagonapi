@@ -2,17 +2,18 @@
 header('Access-Control-Allow-Origin: *');
 
 // type mysql or psql
-// $type = "mysql";
-// $servername = "localhost";
-// $username = "root";
-// $password = "\$admin\$";
-// $dbname = "dagonapi";
 
-$type = "psql";
+$type = "mysql";
 $servername = "localhost";
-$username = "admin";
+$username = "root";
 $password = "\$admin\$";
 $dbname = "dagonapi";
+
+// $type = "psql";
+// $servername = "localhost";
+// $username = "admin";
+// $password = "\$admin\$";
+// $dbname = "dagonapi";
 
 
 // Create connection
