@@ -27,14 +27,8 @@ $txt = '
 include "../connectdb.php";
 include "table_name.php";
 
-$sql = "
-CREATE TABLE $table_name (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    cat_name VARCHAR(30),
-    cat_breed TEXT,
-    date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    )
-";
+$sql = "'.$sql_table.'"
+;
 
 
 // Check connection
