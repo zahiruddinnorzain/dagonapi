@@ -7,8 +7,7 @@ echo "Done make directory $table_name\n";
 
 // ##### make file table_name #####
 $file_migrate = fopen("api/$table_name/table_name.php", "w") or die("Unable to open file!");
-$txt = '
-<?php
+$txt = '<?php
 $table_name = "'.$table_name.'";
 
 ?>
@@ -21,8 +20,7 @@ echo "Done make > table_name.php\n";
 // ##### make file migration #####
 $file_migrate = fopen("api/$table_name/migrate.php", "w") or die("Unable to open file!");
 
-$txt = '
-<?php
+$txt = '<?php
 
 include "../connectdb.php";
 include "table_name.php";
@@ -64,8 +62,7 @@ echo "Done make > migrate.php\n";
 // ##### make file create #####
 $file_migrate = fopen("api/$table_name/create.php", "w") or die("Unable to open file!");
 
-$txt = '
-<?php
+$txt = '<?php
 include "../connectdb.php";
 include "table_name.php";
 
@@ -113,8 +110,7 @@ echo "Done make > create.php\n";
 // ##### make file update #####
 $file_migrate = fopen("api/$table_name/update.php", "w") or die("Unable to open file!");
 
-$txt = '
-<?php
+$txt = '<?php
 include "../connectdb.php";
 include "table_name.php";
 
@@ -161,8 +157,7 @@ echo "Done make > update.php\n";
 // ##### make file read #####
 $file_migrate = fopen("api/$table_name/read.php", "w") or die("Unable to open file!");
 
-$txt = '
-<?php
+$txt = '<?php
 include "../connectdb.php";
 include "table_name.php";
 
@@ -215,8 +210,7 @@ echo "Done make > read.php\n";
 // ##### make file readall #####
 $file_migrate = fopen("api/$table_name/readall.php", "w") or die("Unable to open file!");
 
-$txt = '
-<?php
+$txt = '<?php
 include "../connectdb.php";
 include "table_name.php";
 
@@ -266,9 +260,7 @@ echo "Done make > readall.php\n";
 // ##### make file delete #####
 $file_migrate = fopen("api/$table_name/delete.php", "w") or die("Unable to open file!");
 
-$txt = '
-
-<?php
+$txt = '<?php
 include "../connectdb.php";
 include "table_name.php";
 
